@@ -15,7 +15,7 @@ void setupProdDebugEnv()
 
   Serial.println();
   Serial.println("---------------------------------------------");
-  Serial.println("Hello from Wiring Controller!");
+  Serial.println("Hello from nRF52-test application!");
   Serial.println("---------------------------------------------");
   Serial.println();
 }
