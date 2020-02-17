@@ -5,9 +5,8 @@
  *      Author: nid
  */
 
-#include "MyBuiltinLedIndicatorAdapter.h"
-
 #include <Arduino.h>
+#include "MyBuiltinLedIndicatorAdapter.h"
 
 const uint32_t MyBuiltinLedIndicatorAdapter::cledPin = PIN_BUTTON1;  // there seems to be a bug: PIN_LED1 and PIN_BUTTON1 are exchanged in definition.
 
