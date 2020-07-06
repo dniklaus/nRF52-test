@@ -8,12 +8,13 @@
 #include <Arduino.h>
 #include "MyBuiltinLedIndicatorAdapter.h"
 
-const uint32_t MyBuiltinLedIndicatorAdapter::cledPin = PIN_BUTTON1;  // there seems to be a bug: PIN_LED1 and PIN_BUTTON1 are exchanged in definition.
+const uint32_t MyBuiltinLedIndicatorAdapter::cledPin = LED_BUILTIN;  
 
-MyBuiltinLedIndicatorAdapter::MyBuiltinLedIndicatorAdapter()
+MyBuiltinLedIndicatorAdapter::MyBuiltinLedIndicatorAdapter(unsigned int index /* = 0 */)
+: m_ledPin((index == 1) ? PIN_LED1 : (index == 2) ? PIN_LED2 : (index == 3) ? PIN_LED3 : (index == 4) ? PIN_LED4 : cledPin)
 {
   // initialize built in LED pin as output
-  pinMode(cledPin, OUTPUT);
+  pinMode(m_ledPin, OUTPUT);
 
   // switch LED off
   setLed(false);
@@ -33,5 +34,5 @@ void MyBuiltinLedIndicatorAdapter::setLed(bool isOn)
   // the built-in LED logic on ESP8266 and NRF52 modules are inverted!
   isOn = !isOn;
 #endif
-  digitalWrite(cledPin, isOn);
+  digitalWrite(m_ledPin, isOn);
 }

@@ -28,7 +28,10 @@
 SerialCommand* sCmd = 0;
 
 // indicator implementation for built in LED
-Indicator* led  = 0;
+Indicator* led1 = 0;
+Indicator* led2 = 0;
+Indicator* led3 = 0;
+Indicator* led4 = 0;
 
 void setup()
 {
@@ -36,11 +39,20 @@ void setup()
   setupProdDebugEnv();
 
   // indicator LED
-  led = new Indicator("led", "Built in LED.");
-  led->assignAdapter(new MyBuiltinLedIndicatorAdapter());
+  led1 = new Indicator("led1", "Built in LED1.");
+  led1->assignAdapter(new MyBuiltinLedIndicatorAdapter(1));
+
+  led2 = new Indicator("led2", "Built in LED2.");
+  led2->assignAdapter(new MyBuiltinLedIndicatorAdapter(2));
+
+  led3 = new Indicator("led3", "Built in LED3.");
+  led3->assignAdapter(new MyBuiltinLedIndicatorAdapter(3));
+
+  led4 = new Indicator("led4", "Built in LED4.");
+  led4->assignAdapter(new MyBuiltinLedIndicatorAdapter(4));
 
   // Button
-  new Button(new ArduinoDigitalInPinSupervisor(MyButtonAdapter::cButtonPin), new ButtonEdgeDetector(), new MyButtonAdapter(led));
+  //new Button(new ArduinoDigitalInPinSupervisor(MyButtonAdapter::cButtonPin), new ButtonEdgeDetector(), new MyButtonAdapter(led));
 }
 
 void loop()
