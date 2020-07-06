@@ -8,6 +8,19 @@
 #include <Arduino.h>
 #include "MyBuiltinLedIndicatorAdapter.h"
 
+// patch for missing nRF52840DK pinmap
+#undef PIN_LED1
+#undef PIN_LED2
+#undef PIN_LED3
+#undef PIN_LED4
+#undef LED_BUILTIN
+#define PIN_LED1             (2) 
+#define PIN_LED2             (3) 
+#define PIN_LED3             (4) 
+#define PIN_LED4             (5) 
+#define LED_BUILTIN          PIN_LED1
+
+
 const uint32_t MyBuiltinLedIndicatorAdapter::cledPin = LED_BUILTIN;  
 
 MyBuiltinLedIndicatorAdapter::MyBuiltinLedIndicatorAdapter(unsigned int index /* = 0 */)
