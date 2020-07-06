@@ -8,6 +8,7 @@
 #ifndef LIB_ADAPTER_BUTTONEDGEDETECTOR_H_
 #define LIB_ADAPTER_BUTTONEDGEDETECTOR_H_
 
+#include <EdgeDetector.h>
 #include <DetectorStrategy.h>
 
 class DbgTrace_Port;
