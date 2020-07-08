@@ -10,8 +10,8 @@
 #include <Button.h>
 #include <ButtonEdgeDetector.h>
 
-ButtonEdgeDetector::ButtonEdgeDetector()
-: m_trPort(new DbgTrace_Port("btn", DbgTrace_Level::info))
+ButtonEdgeDetector::ButtonEdgeDetector(const char* name)
+: m_trPort(new DbgTrace_Port(name, DbgTrace_Level::info))
 , m_count(0)
 { }
 

@@ -7,6 +7,16 @@
 
 #include <Arduino.h>
 
+// patch for missing nRF52840DK pinmap
+#undef PIN_BUTTON1
+#undef PIN_BUTTON2
+#undef PIN_BUTTON3
+#undef PIN_BUTTON4
+#define PIN_BUTTON1          (0)  
+#define PIN_BUTTON2          (1)  
+#define PIN_BUTTON3          (12) 
+#define PIN_BUTTON4          (13) 
+
 // PlatformIO libraries
 #include <SerialCommand.h>  // pio lib install 173, lib details see https://github.com/kroimon/Arduino-SerialCommand
 #include <Timer.h>          // pio lib install 1699, lib details see https://github.com/dniklaus/wiring-timer
@@ -52,7 +62,10 @@ void setup()
   led4->assignAdapter(new MyBuiltinLedIndicatorAdapter(4));
 
   // Button
-  //new Button(new ArduinoDigitalInPinSupervisor(MyButtonAdapter::cButtonPin), new ButtonEdgeDetector(), new MyButtonAdapter(led));
+  new Button(new ArduinoDigitalInPinSupervisor(PIN_BUTTON1), new ButtonEdgeDetector("btn1"), new MyButtonAdapter(led1));
+  new Button(new ArduinoDigitalInPinSupervisor(PIN_BUTTON2), new ButtonEdgeDetector("btn2"), new MyButtonAdapter(led2));
+  new Button(new ArduinoDigitalInPinSupervisor(PIN_BUTTON3), new ButtonEdgeDetector("btn3"), new MyButtonAdapter(led3));
+  new Button(new ArduinoDigitalInPinSupervisor(PIN_BUTTON4), new ButtonEdgeDetector("btn4"), new MyButtonAdapter(led4));
 }
 
 void loop()

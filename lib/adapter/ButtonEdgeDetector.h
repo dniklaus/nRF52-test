@@ -20,7 +20,7 @@ private:
   unsigned long int m_count;
 
 public:
-  ButtonEdgeDetector();
+  ButtonEdgeDetector(const char* name);
   virtual ~ButtonEdgeDetector();
 
   void onEdge(bool newState);
