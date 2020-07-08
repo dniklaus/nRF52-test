@@ -8,8 +8,6 @@
 #include <Indicator.h>
 #include <MyButtonAdapter.h>
 
-const uint32_t MyButtonAdapter::cButtonPin = PIN_LED1;  // there seems to be a bug: PIN_LED1 and PIN_BUTTON1 are exchanged in definition.
-
 MyButtonAdapter::MyButtonAdapter(Indicator* indicator)
 : m_indicator(indicator)
 { }
