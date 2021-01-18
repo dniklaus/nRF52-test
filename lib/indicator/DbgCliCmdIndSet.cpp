@@ -39,7 +39,7 @@ void DbgCliCmd_IndSet::printUsage()
 
 void DbgCliCmd_IndSet::printReport()
 {
-  TR_PRINTF(m_trPort, DbgTrace_Level::alert, "%s : %s", getHelpText(), Indicator::getLedStateText(m_indicator.getLedState()));
+  TR_PRINTF(m_trPort, DbgTrace_Level::alert, "%s : %s", getHelpText(), Indicator::getStateText(m_indicator.getState()));
 }
 
 void DbgCliCmd_IndSet::execute(unsigned int argc, const char** args, unsigned int idxToFirstArgToHandle)

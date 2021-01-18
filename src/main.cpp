@@ -19,7 +19,7 @@
 
 // PlatformIO libraries
 #include <SerialCommand.h>  // pio lib install 173, lib details see https://github.com/kroimon/Arduino-SerialCommand
-#include <Timer.h>          // pio lib install 1699, lib details see https://github.com/dniklaus/wiring-timer
+#include <SpinTimer.h>      // pio lib install 1699, lib details see https://github.com/dniklaus/spin-timer
 
 // private libraries
 #include <ProductDebug.h>
@@ -48,7 +48,7 @@ void setup()
   // setup basic debug environment (heap usage printer, trace ports & dbg cli)
   setupProdDebugEnv();
 
-  // indicator LED
+  // indicator LEDs
   led1 = new Indicator("led1", "Built in LED1.");
   led1->assignAdapter(new MyBuiltinLedIndicatorAdapter(1));
 
@@ -61,7 +61,7 @@ void setup()
   led4 = new Indicator("led4", "Built in LED4.");
   led4->assignAdapter(new MyBuiltinLedIndicatorAdapter(4));
 
-  // Button
+  // Buttons
   new Button(new ArduinoDigitalInPinSupervisor(PIN_BUTTON1), new ButtonEdgeDetector("btn1"), new MyButtonAdapter(led1));
   new Button(new ArduinoDigitalInPinSupervisor(PIN_BUTTON2), new ButtonEdgeDetector("btn2"), new MyButtonAdapter(led2));
   new Button(new ArduinoDigitalInPinSupervisor(PIN_BUTTON3), new ButtonEdgeDetector("btn3"), new MyButtonAdapter(led3));

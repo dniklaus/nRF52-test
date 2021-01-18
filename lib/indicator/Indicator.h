@@ -53,7 +53,7 @@ private:  // forbidden default methods
 
 //-----------------------------------------------------------------------------
 
-class Timer;
+class SpinTimer;
 class DbgCli_Topic;
 class DbgCli_Command;
 
@@ -70,7 +70,7 @@ class DbgCli_Command;
 class Indicator
 {
 public:
-  enum class ELedState
+  enum class EIndState
   {
     off   = 0,
     on    = 1,
@@ -86,8 +86,8 @@ public:
 
   DbgCli_Topic* dbgCliTopic();
 
-  ELedState getLedState();
-  static const char* getLedStateText(ELedState ledState);
+  EIndState getState();
+  static const char* getStateText(EIndState state);
 
   void toggle();
   void set();
@@ -98,7 +98,7 @@ public:
 
 private:
   AIndicatorAdapter*  m_adapter;
-  Timer*              m_blinkTimer;
+  SpinTimer*          m_blinkTimer;
   static const unsigned long c_blinkTimeMillis;
   DbgCli_Topic*       m_dbgCliTopic;
   DbgCli_Command*     m_cliCmd;
