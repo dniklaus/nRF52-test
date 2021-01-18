@@ -50,7 +50,7 @@ const unsigned long Indicator::c_blinkTimeMillis = 500;
 
 Indicator::Indicator(const char* name, const char* description)
 : m_adapter(0)
-, m_blinkTimer(new SpinTimer(c_blinkTimeMillis, new BlinkTimerAction(this), SpinTimer::IS_RECURRING, SpinTimer::IS_NON_AUTOSTART))
+, m_blinkTimer(new SpinTimer(c_blinkTimeMillis, new BlinkTimerAction(this), SpinTimer::IS_RECURRING, SpinTimer::IS_AUTOSTART))
 , m_dbgCliTopic(new DbgCli_Topic(DbgCli_Node::RootNode(), name, description))
 , m_cliCmd(new DbgCliCmd_IndSet(*this))
 , m_indicatorBit(false)
